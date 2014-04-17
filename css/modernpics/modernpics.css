@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Modern Pictogram';
+    src: url('modernpics.eot');
+    src: url('modernpics.eot') format('embedded-opentype'),
+         url('modernpics.woff') format('woff'),
+         url('modernpics.ttf') format('truetype'),
+         url('modernpics.svg#ModernPictogramsNormal') format('svg');
+}

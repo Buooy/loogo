@@ -4,6 +4,8 @@
 		<title>Loogo - Text to Logo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<link href="css/modernpics/modernpics.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 
 		<script src="js/require.js"></script>
@@ -19,6 +21,7 @@
 		 		<div class="row">
 		 			<div class="col-md-6 text-center">
 		 				<canvas id="logo"></canvas>
+		 				<div id="img-logo"></div>
 		 			</div>
 
 					<div class="col-md-6 text-center">
@@ -32,6 +35,15 @@
 								</div>
 							</div>
 
+							<!-- Font Family -->
+							<div class="form-group">
+								<label for="text" class="col-md-4 control-label">Font</label>
+								<div class="col-md-8">
+									<select class="form-control" id="fontfamily">
+									</select>
+								</div>
+							</div>
+
 							<!-- Font Size -->
 							<div class="form-group">
 								<label for="text" class="col-md-4 control-label">Font Size</label>
@@ -39,6 +51,7 @@
 									<input type="text" class="form-control" id="fontsize" placeholder="Input Font Size WITHOUT PX">
 								</div>
 							</div>
+
 
 							<!-- logo Height -->
 							<div class="form-group">
@@ -72,8 +85,15 @@
 								</div>
 							</div>
 
+							<!-- Create and save the image -->
+							<button type="button" class="btn btn-primary" id="create-image">Create Image</button>
+
 		 				</form>
-		 			</div>		 			
+
+		 				<p>For more information on modern pictogram: <a href="http://modernpictograms.com/#charset" target="_blank">Modern Pictogram</a></p>
+
+		 			</div>		 	
+
 		 		</div><!-- row -->	
 
 		 	</div><!-- container -->

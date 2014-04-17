@@ -19,6 +19,12 @@ require(['jquery', 'bootstrap','webfont'], function($) {
     
 $(function(){
 
+    /* Font Families */
+    var fonts = [
+        'Droid Sans',
+        'Modern Pictogram' 
+    ];
+
     /* Get the webfonts */
     WebFontConfig = {
         active: function(){
@@ -40,14 +46,33 @@ $(function(){
         $('#logoheight').val('200');
         $('#logowidth').val('200');
 
+        /* On Keyup */
         $('#text, #fontsize, #fontheight, #fontwidth, #logocolor').keyup(function(){
             buildCanvas();
+        });
+        /* On change of the font */
+        $('#fontfamily').change(function(){
+            buildCanvas();
+        });
+
+        /* Populates the font */
+        $.each( fonts,function(key, value) {    
+            var option = '<option value="'+value+'">' + value + '</option>';
+            $('#fontfamily').append(option);
+        });
+
+        // On clicking the button
+        $('#create-image').click(function(){
+            var dataURL = document.getElementById('logo').toDataURL("image/png");
+            $('#img-logo').html('');
+            $('#img-logo').append($('<img/>', { src : dataURL }));
         });
 
     });
 
     function buildCanvas(){
         var _text       =   $('#text').val();
+        var _fontfamily =   $('#fontfamily').val();
         var _fontsize   =   $('#fontsize').val();
         var _text       =   $('#text').val();
         var _logoheight =   $('#logoheight').val();
@@ -65,12 +90,13 @@ $(function(){
         var ctx = canvas.getContext('2d');
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.font            =   _fontsize + 'px "Droid Sans"';
+        ctx.font            =   _fontsize + 'px ' + '"' + _fontfamily + '"';
         ctx.textBaseline    =   'middle';
         ctx.textAlign       =   'center';
         ctx.fillStyle       =   _logocolor;
         ctx.fillText(_text, canvas.width/2, canvas.height/2);
     }
+
 
 
 });
